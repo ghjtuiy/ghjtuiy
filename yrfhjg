@@ -1,0 +1,16 @@
+import os
+def batch_rename(directory, prefix):
+    i = 1
+    for filename in os.listdir(directory):
+        ext = os.path.splitext(filename)[1]
+        new_name = f"{prefix}_{i}{ext}"
+        os.rename(os.path.join(directory, filename), os.path.join(directory, new_name))
+        i += 1
+batch_rename('/path/to/directory', 'file')
+import requests
+def download_webpage(url, output_file):
+    response = requests.get(url)
+    with open(output_file, 'w') as file:
+        file.write(response.text)
+download_webpage('http://example.com', 'webpage.html')
+代码示例
